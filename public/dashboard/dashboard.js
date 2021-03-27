@@ -16,4 +16,4 @@ function validate()
         {
           alert("You have entered an Incorrect Email or Password")
         }
-      }
+}
