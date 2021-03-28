@@ -12,41 +12,37 @@
         integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
     <meta charset="UTF-8">
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+
     <link rel="stylesheet" type="text/css" href="css/style.css">
-    <script src="home.js"></script>
+    <script src="js/.js"></script>
 </head>
 
 <body>
-    <div class="bgi">
-        <div class="blur">
-            <div class="formdiv container-fluid">
 
-                <div class="fc">
 
-                    <form name="form1" class="form1" onsubmit="validate()" id="myForm">
-                        <div class="row">
-                            <div class="form-group mb-3 col-sm-12">
-                                <label for="email"> Enter your E-mail:</label>
-                                <input type="email" class="form-control" id="email" placeholder="E-mail">
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="form-group mb-3 col-sm-12">
-                                <label for="passwd"> Enter your Password:</label>
-                                <input type="password" class="form-control" id="passwd" placeholder="Password">
-                            </div>
-                        </div>
-                        <div class="text-center">
-                            <button type="submit" id="signIn" class="btn btn-primary mb-1" onclick="validate()"> 
-                                <i class='bx bxs-arrow-to-right icoo'> </i>Sign In</i></button>
-                        </div>
+    <div class="formdiv container-fluid">
 
-                    </form>
+        <div class="fc">
+            <form name="form1" class="form1" action="javascript:void(0)" id="myForm">
 
+                <div class="form-group mb-3 col-12">
+                    <input type="email" class="form-control" id="email" placeholder="E-mail">
                 </div>
-            </div>
+                <div class="form-group mb-3 col-12">
+                    <input type="password" class="form-control" id="passwd" placeholder="Password">
+                    <small id="err" class="form-text hide">Wrong Email Id or Password</small>
+                </div>
+                <div class="form-group">
+                    <button id="signIn" class="btn btn-primary btn-block mb-1" onclick="validate()">
+                        <i class='bx bxs-arrow-to-right icoo'></i>
+                        Sign In
+                    </button>
+                </div>
+            </form>
+
         </div>
     </div>
+
 
     <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="/__/firebase/8.3.1/firebase-app.js"></script>
@@ -58,4 +54,5 @@
     <script src="/__/firebase/init.js"></script>
 
 </body>
+
 </html>

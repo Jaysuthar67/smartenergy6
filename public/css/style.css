@@ -1,53 +1,56 @@
-.fc{
+body{
+    height:100vh;
+    overflow: hidden;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url('https://source.unsplash.com/daily/?nature,mountains');
+
+}
+
+
+.formdiv{
     display: flex;
     align-items:center;
     justify-content: center;
-    background-color: rgb(255, 255, 255);
-    border-radius: 10px 10px;
-    box-shadow: 0px 0px 5px 0px #000;
-    width: 600px;
-    padding: 20px;
-    
+    width: 100%;
+    background: #384b61a9;
+    margin-top: auto; 
+    height: 100vh;
+    background-size: cover;
+    position: relative;
+}
+
+.fc{
+    padding: 40px;
+    background-color: #1e2833;
+    border-radius: 4px;
+    max-width: 320px;
+    width: 90%;
+    box-shadow: 3px 3px 4px rgba(0, 0, 0, 0.2);
 }
 .form1{
     /* background-color: rgb(127, 255, 148); */
     width:80%;
     padding: 10px;
 }
-.formdiv{
-    display: flex;
-    align-items:center;
-    justify-content: center;
-    padding: 300px;
-    margin-top: auto;
-    
-    
-}
-html, body{
-    min-height:100%;
-}
-body{
-    height:100vh;
-    overflow: hidden;
 
+.hide{
+    display: none;
 }
+
+#err{
+    color: red;
+}
+
 .icoo{
     margin-right: 8px;
     font-size: 16px;
     margin-top: 3px;
 }
-.bgi{
-    background-image: url('2157.png');
-    position: relative;
-    background-position: bottom;
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 100vh;
-    width: 100%;
-    
-}
-.blur {
+
+
+/* .blur {
     background: rgba(255, 255, 255, 0);
     backdrop-filter: blur(5px);
     height: 100vh;
-}
+} */
