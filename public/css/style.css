@@ -2,6 +2,7 @@
 :root {
     --primary-dark: #1e2833;
     --primary-translusant: #384b61a9;
+    --primery-alert:rgb(255, 51, 0);
     --jay-shadow: 3px 3px 4px rgba(0, 0, 0, 0.2);
 
     /* fonts */
@@ -15,7 +16,7 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     background-image: url('https://source.unsplash.com/daily/?nature,mountains');
-
+    backdrop-filter: blur(5px);
 }
 
 .formdiv {
@@ -40,14 +41,38 @@ body {
 }
 
 .form1 {
-/* background-color: yellow; */
+    /* background-color: yellow; */
     text-align: center;
     text-decoration: none;
     padding: 10px;
 }
+.form-group{
+    padding: 5px;
+}
 
 .form-control {
+    background: none;
+    border: none;
+    border-bottom: 1px solid #434a52;
+    border-radius: 0;
+    box-shadow: none;
+    outline: none;
+    color: white;
     margin: 10px 0px 10px 0px;
+}
+.form-control:focus {
+    background: none;
+    border: none;
+    border-bottom: 1px solid #434a52;
+    border-radius: 0;
+    box-shadow: none;
+    outline: none;
+    color: white;
+    margin: 10px 0px 10px 0px;
+}
+
+.btn-primary{
+    width: 100%;
 }
 
 .login-label {
@@ -59,13 +84,7 @@ body {
 }
 
 #err {
-    color: red;
-}
-
-.icoo {
-    margin-right: 8px;
-    font-size: 16px;
-    margin-top: 3px;
+    color: var(--primery-alert);
 }
 
 
