@@ -9,6 +9,7 @@ try {
 } catch (syserror) {
     alert("Something Went Wrong");
     console.log(syserror);
+    window.location.href = "../";
 }
 
 firebase.auth().onAuthStateChanged(function (user) {
