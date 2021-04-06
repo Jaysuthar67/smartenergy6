@@ -7,37 +7,46 @@
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-        crossorigin="anonymous"></script>
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+    </script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-        crossorigin="anonymous"></script>
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+    </script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
     <meta charset="UTF-8">
+
+    <link rel="shortcut icon" href="../assets/favicon.ico" type="image/x-icon">
+
     <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" href="../css/fonts.css">
 
 </head>
 
 <body>
     <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
-        <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Smart Energy Management</a>
+        <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Smart Energy Management | </a>
+        <!-- <div class=" navbar-brand UserNameDisplay" id="currentuser"></div> -->
+
         <form class="form-inline">
             <li class="nav-item dropdown my-2 my-sm-2">
-                <button class="nav-link dropdown-toggle bg-light" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Manage
+                <button class="nav-link dropdown-toggle bg-light" href="#" id="navbarDropdown" role="button"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
+                    <div class="" id="currentuser">Manage</div>
                 </button>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" type="button" href="#">Add User</a>
-                  <a class="dropdown-item" href="#">Anything else</a>
-                  <div class="dropdown-divider"></div>
-                  <a class="dropdown-item" href="#">Sign Out</a>
+                    <a class="dropdown-item" type="button" href="#">Add User</a>
+                    <a class="dropdown-item" href="#">Anything else</a>
+                    <div class="dropdown-divider"></div>
+                    <!-- <a class="dropdown-item" href="#">Sign Out</a> -->
+                    <button class="dropdown-item" onclick="logout()">Sign Out</button>
                 </div>
-              </li>
+            </li>
         </form>
-        
+
     </nav>
-    
+
     <div class="container-fluid">
         <div class="row">
             <nav class="col-md-2 d-none d-md-block bg-light sidebar">
@@ -76,24 +85,41 @@
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="#submenu1" data-toggle="collapse" data-target="#submenu1"><i class="fa fa-table"></i> <span class="d-none d-sm-inline">Classes ▾</span></a>
+                            <a class="nav-link" href="#submenu1" data-toggle="collapse" data-target="#submenu1"><i
+                                    class="fa fa-table"></i> <span class="d-none d-sm-inline">Classes ▾</span></a>
                             <div class="collapse" id="submenu1" aria-expanded="false">
                                 <ul class="flex-column pl-2 nav">
                                     <li class="nav-item"><a class="nav-link py-0" href="#"><span>701</span></a></li>
                                 </ul>
                             </div>
 
-                            <a class="nav-link collapsed text-truncate" href="#submenu2" data-toggle="collapse" data-target="#submenu2"><i class="fa fa-table"></i> <span class="d-none d-sm-inline">Labs ▾</span></a>
+                            <a class="nav-link collapsed text-truncate" href="#submenu2" data-toggle="collapse"
+                                data-target="#submenu2"><i class="fa fa-table"></i> <span
+                                    class="d-none d-sm-inline">Labs ▾</span></a>
                             <div class="collapse" id="submenu2" aria-expanded="false">
                                 <ul class="flex-column pl-2 nav">
                                     <li class="nav-item"><a class="nav-link py-0" href="#"><span>Orders</span></a></li>
                                 </ul>
                             </div>
                         </li>
-
                     </ul>
                 </div>
             </nav>
+        </div>
+    </div>
+
+
+    <!-- Jay Suthar | Don't change any js links -->
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="/__/firebase/8.3.1/firebase-app.js"></script>
+    <!-- Add Firebase products that you want to use -->
+    <script src="/__/firebase/8.3.1/firebase-auth.js"></script>
+    <!-- Add Firebase products that you want to use -->
+    <script src="/__/firebase/8.3.1/firebase-auth.js"></script>
+    <!-- Initialize Firebase -->
+    <script src="/__/firebase/init.js?useEmulator=true"></script>
+    <script src="js/dashboard.js"></script>
+    <!-- Jay Suthar | End -->
 </body>
 
 </html>
