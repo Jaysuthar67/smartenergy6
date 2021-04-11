@@ -41,13 +41,79 @@
                     aria-label="Favorite">favorite</button>
                 <button class="material-icons mdc-top-app-bar__action-item mdc-icon-button"
                     aria-label="Search">search</button>
-                <button class="material-icons mdc-top-app-bar__action-item mdc-icon-button"
-                    aria-label="Options">more_vert</button>
+                <div class="mdc-menu-surface--anchor">
+                    <button class="material-icons mdc-top-app-bar__action-item mdc-icon-button " id="menu-button"
+                        aria-label="Options">more_vert</button>
+
+                </div>
             </section>
+
         </div>
     </header>
-    <main class="mdc-top-app-bar--fixed-adjust">
-        <!-- App content -->
+    <div class="app-drawer-layout mdc-top-app-bar--fixed-adjust">
+        <aside class="mdc-drawer mdc-drawer--dismissible">
+            <div class="mdc-drawer__content">
+                <nav class="mdc-list">
+                    <a class="mdc-list-item mdc-list-item--activated" href="#" aria-current="page">
+                        <span class="mdc-list-item__ripple"></span>
+                        <i class="material-icons mdc-list-item__graphic" aria-hidden="true">dashboard</i>
+                        <span class="mdc-list-item__text">Dashboard</span>
+                    </a>
+                    <hr class="mdc-list-divider">
+                    <a class="mdc-list-item mdc-button classMenuBtn" href="#">
+                        <span class="mdc-list-item__ripple"></span>
+                        <i class="material-icons mdc-list-item__graphic" aria-hidden="true">school</i>
+                        <span class="mdc-list-item__text">Classes</span>
+                        <i class="material-icons mdc-list-item__graphic classMenuAnchor"
+                            aria-hidden="true">arrow_drop_down</i>
+                    </a>
+                    <div class="mdc-menu mdc-menu-surface classMenu">
+                        <ul class="mdc-list" role="menu" aria-hidden="true" aria-orientation="vertical" tabindex="-1">
+                            <li class="mdc-list-item" role="menuitem">
+                                <span class="mdc-list-item__ripple"></span>
+                                <span class="mdc-list-item__text">Class 1</span>
+                            </li>
+                            <li class="mdc-list-item" role="menuitem">
+                                <span class="mdc-list-item__ripple"></span>
+                                <span class="mdc-list-item__text">Class 2</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <a class="mdc-list-item labMenuBtn" href="#">
+                        <span class="mdc-list-item__ripple"></span>
+                        <i class="material-icons mdc-list-item__graphic" aria-hidden="true">dvr</i>
+                        <span class="mdc-list-item__text">Computer-Lab</span>
+                        <i class="material-icons mdc-list-item__graphic labMenuAnchor"
+                            aria-hidden="true">arrow_drop_down</i>
+                    </a>
+                    <div class="mdc-menu mdc-menu-surface labMenu">
+                        <ul class="mdc-list" role="menu" aria-hidden="true" aria-orientation="vertical" tabindex="-1">
+                            <li class="mdc-list-item" role="menuitem">
+                                <span class="mdc-list-item__ripple"></span>
+                                <span class="mdc-list-item__text">Lab 1</span>
+                            </li>
+                            <li class="mdc-list-item" role="menuitem">
+                                <span class="mdc-list-item__ripple"></span>
+                                <span class="mdc-list-item__text">Lab 2</span>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </aside>
+    </div>
+    <main class="mdc-drawer-app-content main-content">
+        App content
+        <div class="demo__title">Click the menu button</div>
+        <div class="demo__subtitle"> at the top left of the page to toggle the drawer</div>
+        <!-- <button class="mdc-button" >Sign Out</button> -->
+        <div class="mdc-touch-target-wrapper">
+            <button class="mdc-button mdc-button--touch mdc-button--raised" onclick="logout()">
+                <span class="mdc-button__ripple"></span>
+                <span class="mdc-button__label">Sign Out</span>
+                <span class="mdc-button__touch"></span>
+            </button>
+        </div>
     </main>
 
     <!-- <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap shadow">
@@ -68,39 +134,7 @@
             </li>
         </form>
     </nav> -->
-    <aside class="mdc-drawer mdc-drawer--dismissible">
-        <div class="mdc-drawer__content">
-            <nav class="mdc-list">
-                <a class="mdc-list-item mdc-list-item--activated" href="#" aria-current="page">
-                    <span class="mdc-list-item__ripple"></span>
-                    <i class="material-icons mdc-list-item__graphic" aria-hidden="true">dashboard</i>
-                    <span class="mdc-list-item__text">Dashboard</span>
-                </a>
-                <a class="mdc-list-item" href="#">
-                    <span class="mdc-list-item__ripple"></span>
-                    <i class="material-icons mdc-list-item__graphic" aria-hidden="true">school</i>
-                    <span class="mdc-list-item__text openClassesMenu">Classes</span>
-                    <div class="mdc-menu mdc-menu-surface classDropdown">
-                        <ul class="mdc-list" role="menu" aria-hidden="true" aria-orientation="vertical" tabindex="-1">
-                          <li class="mdc-list-item" role="menuitem">
-                            <span class="mdc-list-item__ripple"></span>
-                            <span class="mdc-list-item__text">A Menu Item</span>
-                          </li>
-                          <li class="mdc-list-item" role="menuitem">
-                            <span class="mdc-list-item__ripple"></span>
-                            <span class="mdc-list-item__text">Another Menu Item</span>
-                          </li>
-                        </ul>
-                      </div>
-                </a>
-                <a class="mdc-list-item" href="#">
-                    <span class="mdc-list-item__ripple"></span>
-                    <i class="material-icons mdc-list-item__graphic" aria-hidden="true">dvr</i>
-                    <span class="mdc-list-item__text">Labs</span>
-                </a>
-            </nav>
-        </div>
-    </aside>
+
 
     <!-- <div class="container-fluid">
         <div class="row">
@@ -157,7 +191,20 @@
             </nav>
         </div>
     </div> -->
-    <button class="" onclick="logout()">Sign Out</button>
+    <div class="mdc-snackbar">
+        <div class="mdc-snackbar__surface" role="status" aria-relevant="additions">
+            <div class="mdc-snackbar__label" aria-atomic="false">
+                Can't send photo. Retry in 5 seconds.
+            </div>
+            <div class="mdc-snackbar__actions" aria-atomic="true">
+                <button type="button" class="mdc-button mdc-snackbar__action">
+                    <div class="mdc-button__ripple"></div>
+                    <span class="mdc-button__label">Retry</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
 
     <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
 

@@ -1,10 +1,10 @@
 /* jay  */
 :root {
     /* Colors */
-    --primary-dark: #1e2833;
+    --primary-dark: #0F1923;
     --primary-translusant: #384b61a9;
     --primery-alert:rgb(255, 51, 0);
-
+    --primery-accent:#047900;
     --secondery-dark:#434a52;
 
     /* Shadows */
