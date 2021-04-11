@@ -19,6 +19,8 @@
         integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
     <meta charset="UTF-8">
 
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
     <link rel="shortcut icon" href="../assets/favicon.ico" type="image/x-icon">
 
     <link rel="stylesheet" type="text/css" href="css/style.css">
@@ -27,11 +29,25 @@
 </head>
 
 <body>
+    <header class="mdc-top-app-bar">
+        <div class="mdc-top-app-bar__row">
+          <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
+            <button class="material-icons mdc-top-app-bar__navigation-icon mdc-icon-button" aria-label="Open navigation menu">menu</button>
+            <span class="mdc-top-app-bar__title">Page title</span>
+          </section>
+          <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end" role="toolbar">
+            <button class="material-icons mdc-top-app-bar__action-item mdc-icon-button" aria-label="Favorite">favorite</button>
+            <button class="material-icons mdc-top-app-bar__action-item mdc-icon-button" aria-label="Search">search</button>
+            <button class="material-icons mdc-top-app-bar__action-item mdc-icon-button" aria-label="Options">more_vert</button>
+          </section>
+        </div>
+      </header>
+      <main class="mdc-top-app-bar--fixed-adjust">
+        <!-- App content -->
+      </main>
     
-    <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap shadow">
+    <!-- <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap shadow">
         <img class="navbar-brand" src="../assets/nameLogo.svg">
-        <!-- <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Smart Energy Management | </a> -->
-        <!-- <div class=" navbar-brand UserNameDisplay" id="currentuser"></div> -->
         <form class="form-inline">
             <li class="nav-item dropdown my-2 my-sm-2">
                 <button class="nav-link dropdown-toggle bg-light" href="#" id="navbarDropdown" role="button"
@@ -43,15 +59,34 @@
                     <a class="dropdown-item" type="button" href="#">Add User</a>
                     <a class="dropdown-item" href="#">Anything else</a>
                     <div class="dropdown-divider"></div>
-                    <!-- <a class="dropdown-item" href="#">Sign Out</a> -->
                     <button class="dropdown-item" onclick="logout()">Sign Out</button>
                 </div>
             </li>
         </form>
-
+    </nav> -->
+<aside class="mdc-drawer">
+  <div class="mdc-drawer__content">
+    <nav class="mdc-list">
+      <a class="mdc-list-item mdc-list-item--activated" href="#" aria-current="page">
+        <span class="mdc-list-item__ripple"></span>
+        <i class="material-icons mdc-list-item__graphic" aria-hidden="true">dashboard</i>
+        <span class="mdc-list-item__text">Dashboard</span>
+      </a>
+      <a class="mdc-list-item" href="#">
+        <span class="mdc-list-item__ripple"></span>
+        <i class="material-icons mdc-list-item__graphic" aria-hidden="true">school</i>
+        <span class="mdc-list-item__text">Classes</span>
+      </a>
+      <a class="mdc-list-item" href="#">
+        <span class="mdc-list-item__ripple"></span>
+        <i class="material-icons mdc-list-item__graphic" aria-hidden="true">drafts</i>
+        <span class="mdc-list-item__text">Labs</span>
+      </a>
     </nav>
+  </div>
+</aside>
 
-    <div class="container-fluid">
+    <!-- <div class="container-fluid">
         <div class="row">
             <nav class="col-md-2 d-none d-md-block bg-light sidebar">
                 <div class="sidebar-sticky">
@@ -105,8 +140,8 @@
                 </div>
             </nav>
         </div>
-    </div>
-
+    </div> -->
+    <button class="" onclick="logout()">Sign Out</button>
 
     <!-- Jay Suthar | Don't change any js links -->
     <!-- The core Firebase JS SDK is always required and must be listed first -->

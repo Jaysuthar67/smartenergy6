@@ -1,3 +1,17 @@
+// import {MDCTopAppBar} from '@material/top-app-bar';
+
+// // Instantiation
+// const topAppBarElement = document.querySelector('.mdc-top-app-bar');
+// const topAppBar = new MDCTopAppBar(topAppBarElement);
+
+
+
+const topAppBar = mdc.topAppBar.MDCTopAppBar.attachTo(document.getElementById('app-bar'));
+topAppBar.setScrollTarget(document.getElementById('main-content'));
+topAppBar.listen('MDCTopAppBar:nav', () => {
+    drawer.open = !drawer.open;
+});
+
 try {
     function logout() {
         firebase.auth().signOut().then(function () {
@@ -12,32 +26,11 @@ try {
     window.location.href = "../";
 }
 
-firebase.auth().onAuthStateChanged(function (user) {
-    if (user) {
-        document.getElementById("currentuser").innerHTML = user.displayName;
-        // document.getElementById("userLi").classList.remove("hide");
-        // document.getElementById("previewBtn").classList.remove("hide");
-        // console.log(user);
-        // fade(document.getElementById("preloader"));
-    } else {
-        console.log('%c ' + user, 'color:black; font-weight:bold; background-color:red');
-        window.location.href = "../";
-    }
+
+
+document.addEventListener("DOMContentLoaded", function (event) {
+    checkauth();
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 // Miscellaneous Code
