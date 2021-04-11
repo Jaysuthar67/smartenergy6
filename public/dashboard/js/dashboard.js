@@ -1,16 +1,25 @@
-// import {MDCTopAppBar} from '@material/top-app-bar';
-
 // // Instantiation
-// const topAppBarElement = document.querySelector('.mdc-top-app-bar');
-// const topAppBar = new MDCTopAppBar(topAppBarElement);
+const topAppBarElement = document.querySelector('.mdc-top-app-bar');
+
+const topAppBar = new mdc.topAppBar.MDCTopAppBar(topAppBarElement);
+
+// const list = MDCList.attachTo(document.querySelector('.mdc-list'));
+// list.wrapFocus = true;
 
 
+const drawerelement = document.querySelector(".mdc-drawer--dismissible");
+const drawer = new mdc.drawer.MDCDrawer(drawerelement)
 
-const topAppBar = mdc.topAppBar.MDCTopAppBar.attachTo(document.getElementById('app-bar'));
-topAppBar.setScrollTarget(document.getElementById('main-content'));
 topAppBar.listen('MDCTopAppBar:nav', () => {
     drawer.open = !drawer.open;
 });
+
+const openClassesMenu = document.querySelector(".openClassesMenu");
+const classDropdownElement = document.querySelector(".classDropdown");
+const classMenu = new mdc.mdcMenu.MDCMenu()
+openClassesMenu.addEventListener("click",function(){
+    
+})
 
 try {
     function logout() {
@@ -45,4 +54,5 @@ function fade(element) {
         element.style.filter = 'alpha(opacity=' + op * 100 + ")";
         op -= op * 0.1;
     }, 20);
+
 } // - J.s.

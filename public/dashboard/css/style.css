@@ -1,3 +1,31 @@
+
+
+/* jay  */
+:root {
+    /* Colors */
+    --primary-dark: #1e2833;
+    --primary-translusant: #384b61a9;
+    --primery-alert:rgb(255, 51, 0);
+
+    --secondery-dark:#434a52;
+
+    /* Shadows */
+    --jay-shadow: 3px 3px 4px rgba(0, 0, 0, 0.2);
+
+    --mdc-theme-primary:#1e2833;
+    /* fonts */
+    
+
+}
+
+
+body{
+    overflow-y: hidden;
+    
+}
+.nameLogo{
+    width: 15vw;
+}
 .my-sm-2{
     margin-right: 2rem;
 }
