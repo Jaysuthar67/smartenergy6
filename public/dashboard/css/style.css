@@ -23,23 +23,30 @@ body {
     overflow-y: hidden;
 
 }
+
 .main-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  flex: 1;
-  padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    padding: 1.5rem;
 }
 
-.userMenu{
-    position: absolute;
-    top:48px;
-    left: 500px;
+.labMenu {
+    margin-top: 50%;
+    margin-left: 25%;
 }
-.mdc-drawer{
-    overflow:visible;
+
+.classMenu {
+    margin-top: 30%;
+    margin-left: 25%;
 }
+
+.mdc-drawer {
+    overflow: visible;
+}
+
 .mdc-drawer .mdc-list-item--activated {
     color: var(--primery-accent);
 }

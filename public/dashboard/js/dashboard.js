@@ -41,6 +41,39 @@ labMenuBtn.addEventListener('click', () => {
     labMenu.setAnchorElement(labMenuAnchor);
 });
 
+const userMenuBtn = document.querySelector('.userMenuBtn');
+const userMenuEl = document.querySelector('.userMenu');
+const userMenu = new mdc.menu.MDCMenu(userMenuEl);
+userMenu.setAnchorCorner(mdc.menuSurface.Corner.BOTTOM_END);
+
+userMenuBtn.addEventListener('click', () => {
+    userMenu.open = !userMenu.open;
+    userMenu.setAnchorElement(userMenuBtn);
+})
+
+
+function class1Active() {
+
+    closeNavBar();
+}
+function class2Active() {
+
+    closeNavBar();
+}
+function lab1Active() {
+
+    closeNavBar();
+}
+function lab2Active() {
+
+    closeNavBar();
+}
+
+function dashboardClick() {
+
+    closeNavBar();
+}
+
 
 try {
     function logout() {
@@ -59,6 +92,9 @@ try {
 
 
 // Miscellaneous Code
+function closeNavBar() {
+    drawer.open = false;
+}
 function fade(element) {
     var op = 1; // initial opacity
     var timer = setInterval(function () {

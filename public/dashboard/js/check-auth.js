@@ -1,7 +1,7 @@
 function checkauth() {
     firebase.auth().onAuthStateChanged(function (user) {
         if (user) {
-            document.getElementById("currentuser").innerHTML = user.displayName;
+            document.getElementById("currentUser").innerHTML = "Welcome, " + user.displayName;
             // document.getElementById("userLi").classList.remove("hide");
             // document.getElementById("previewBtn").classList.remove("hide");
             // console.log(user);
