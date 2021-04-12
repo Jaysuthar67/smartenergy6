@@ -1,6 +1,7 @@
 // // Instantiation
-document.addEventListener("DOMContentLoaded", function (event) {
+document.addEventListener("DOMContentLoaded", function (e) {
     checkauth();
+    loadDashboard();
 });
 
 
@@ -51,43 +52,149 @@ userMenuBtn.addEventListener('click', () => {
     userMenu.setAnchorElement(userMenuBtn);
 })
 
+function loadDashboard() {
+    const blockA = pureknob.createKnob(300, 300);
+    blockA.setProperty('angleStart', -0.75 * Math.PI);
+    blockA.setProperty('angleEnd', 0.75 * Math.PI);
+    blockA.setProperty('colorFG', '#05a300');
+    blockA.setProperty('colorBG', '#cccccc');
+    blockA.setProperty('trackWidth', 0.3);
+    blockA.setProperty('valMin', 0);
+    blockA.setProperty('valMax', 1500);
+    blockA.setProperty('readonly', true);
+    blockA.setProperty('textScale', 0.60);
+    blockA.setValue(1230);
+    let nodeA = blockA.node();
+    let elemA = document.querySelector('.meterA');
+    elemA.insertBefore(nodeA, elemA.childNodes[0]);
+    const blockB = pureknob.createKnob(300, 300);
+    blockB.setProperty('angleStart', -0.75 * Math.PI);
+    blockB.setProperty('angleEnd', 0.75 * Math.PI);
+    blockB.setProperty('colorFG', '#05a300');
+    blockB.setProperty('colorBG', '#cccccc');
+    blockB.setProperty('trackWidth', 0.3);
+    blockB.setProperty('valMin', 0);
+    blockB.setProperty('valMax', 1500);
+    blockB.setProperty('readonly', true);
+    blockB.setProperty('textScale', 0.60);
+    blockB.setValue(840);
+    let nodeB = blockB.node();
+    let elemB = document.querySelector('.meterB');
+    elemB.insertBefore(nodeB, elemB.childNodes[0]);
+
+}
 
 function class1Active() {
-
+    hideDashboard();
+    hideClass2();
+    hideLab1();
+    hideLab2();
+    showClass1();
     closeNavBar();
 }
+
 function class2Active() {
-
+    hideDashboard();
+    hideClass1();
+    hideLab1();
+    hideLab2();
+    showClass2();
     closeNavBar();
 }
+
 function lab1Active() {
-
+    hideDashboard();
+    hideClass1();
+    hideClass2();
+    hideLab2();
+    showLab1();
     closeNavBar();
 }
-function lab2Active() {
 
+function lab2Active() {
+    hideDashboard();
+    hideClass1();
+    hideClass2();
+    hideLab1();
+    showLab2();
     closeNavBar();
 }
 
 function dashboardClick() {
-
+    hideClass1();
+    hideClass2();
+    hideLab1();
+    hideLab2();
+    showDashboard();
     closeNavBar();
 }
 
+function showDashboard() {
 
-try {
-    function logout() {
+    const dashboardMainContent = document.querySelector('.dashboardMainContent');
+    dashboardMainContent.classList.remove("hide");
+}
+
+function hideDashboard() {
+    const dashboardMainContent = document.querySelector('.dashboardMainContent');
+    dashboardMainContent.classList.add("hide");
+}
+
+function showClass1() {
+    const class1Content = document.querySelector('.class1Content');
+    class1Content.classList.remove("hide");
+}
+
+function hideClass1() {
+    const class1Content = document.querySelector('.class1Content');
+    class1Content.classList.add("hide");
+}
+
+function showClass2() {
+    const class2Content = document.querySelector('.class2Content');
+    class2Content.classList.remove("hide");
+}
+
+function hideClass2() {
+    const class2Content = document.querySelector('.class2Content');
+    class2Content.classList.add("hide");
+}
+
+function showLab1() {
+    const lab1Content = document.querySelector('.lab1Content');
+    lab1Content.classList.remove("hide");
+}
+
+function hideLab1() {
+    const lab1Content = document.querySelector('.lab1Content');
+    lab1Content.classList.add("hide");
+}
+
+function showLab2() {
+    const lab2Content = document.querySelector('.lab2Content');
+    lab2Content.classList.remove("hide");
+}
+
+function hideLab2() {
+    const lab2Content = document.querySelector('.lab2Content');
+    lab2Content.classList.add("hide");
+}
+
+
+function logout() {
+    try {
         firebase.auth().signOut().then(function () {
             window.location.href = "../";
         }).catch(function (error) {
             console.log(error);
         });
+    } catch (syserror) {
+        alert("Something Went Wrong");
+        console.log(syserror);
+        window.location.href = "../";
     }
-} catch (syserror) {
-    alert("Something Went Wrong");
-    console.log(syserror);
-    window.location.href = "../";
 }
+
 
 
 
@@ -95,6 +202,7 @@ try {
 function closeNavBar() {
     drawer.open = false;
 }
+
 function fade(element) {
     var op = 1; // initial opacity
     var timer = setInterval(function () {

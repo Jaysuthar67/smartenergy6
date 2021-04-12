@@ -12,3 +12,22 @@ function checkauth() {
         }
     });
 }
+
+function sendResetPassword() {
+    var emailAddress = firebase.auth().currentUser.email;
+    firebase.auth().sendPasswordResetEmail(emailAddress).then(function () {
+        // console.log("Email Link Sent Successfully");
+        alert("Password Reset Link Was sent to " + emailAddress + " email Address");
+        firebase.auth().signOut().then(function () {
+            window.location.href = "../";
+        }).catch(function (error) {
+            console.log(error);
+        });
+        window.location.href = "../";
+    }).catch(function (error) {
+        alert("Something Went Wrong");
+        console.log(syserror);
+        window.location.href = "../";
+    });
+
+}

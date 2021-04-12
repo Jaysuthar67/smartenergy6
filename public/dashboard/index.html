@@ -7,7 +7,7 @@
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
     <link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet">
-
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
         integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
@@ -19,12 +19,13 @@
         integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
     <meta charset="UTF-8">
 
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <script src="js/pureknob.js" type="text/javascript"></script>
+
+    <link rel="stylesheet" href="../css/fonts.css">
 
     <link rel="shortcut icon" href="../assets/favicon.ico" type="image/x-icon">
-
     <link rel="stylesheet" type="text/css" href="css/style.css">
-    <link rel="stylesheet" href="../css/fonts.css">
+
 
 </head>
 
@@ -46,7 +47,7 @@
 
                 <div class="mdc-menu mdc-menu-surface userMenu">
                     <ul class="mdc-list" role="menu" aria-hidden="true" aria-orientation="vertical" tabindex="-1">
-                        <li class="mdc-list-item" role="menuitem">
+                        <li class="mdc-list-item" onclick="sendResetPassword()" role="menuitem">
                             <span class="mdc-list-item__ripple"></span>
                             <i class="material-icons mdc-list-item__graphic" aria-hidden="true">restart_alt</i>
                             <span class="mdc-list-item__text">Reset Password</span>
@@ -114,9 +115,46 @@
         </aside>
     </div>
     <main class="mdc-drawer-app-content main-content mainDiv">
-        App content
+        <div class="warning-w100 hide">Prototype Version !</div>
         <div class="dashboardMainContent">
+            <div class="displayTitle">
+                <p> Dashboard </p>
+            </div>
+            <div class="dashContent">
+                <section class="sectionA">
+                    <p>Block A</p>
+                    <div class="meterA">
+                        <p>1230W </p>
+                    </div>
+                </section>
+                <section class="sectionB">
+                    <p>Block B</p>
+                    <div class="meterB">
+                        <p>1230W </p>
+                    </div>
+                </section>
+            </div>
+        </div>
 
+        <div class="class1Content hide">
+            <div class="displayTitle">
+                <p>Class 1</p>
+            </div>
+        </div>
+        <div class="class2Content hide">
+            <div class="displayTitle">
+                <p>Class 2</p>
+            </div>
+        </div>
+        <div class="lab1Content hide">
+            <div class="displayTitle">
+                <p>Lab 1</p>
+            </div>
+        </div>
+        <div class="lab2Content hide">
+            <div class="displayTitle">
+                <p>Lab 2</p>
+            </div>
         </div>
     </main>
 
