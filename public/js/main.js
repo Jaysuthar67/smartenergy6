@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function (event) {
+document.addEventListener("DOMContentLoaded", function (e) {
     firebase.auth().onAuthStateChanged(function (user) {
         if (user) {
             window.location.href = "dashboard/";
