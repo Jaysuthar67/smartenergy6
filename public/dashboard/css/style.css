@@ -23,6 +23,9 @@ body {
     overflow-y: hidden;
 
 }
+.mainDiv{
+    height: 100vh;
+}
 
 .main-content {
     display: flex;
@@ -37,7 +40,6 @@ body {
     margin-top: 50%;
     margin-left: 25%;
 }
-
 .classMenu {
     margin-top: 30%;
     margin-left: 25%;

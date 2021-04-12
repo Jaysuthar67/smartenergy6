@@ -1,10 +1,19 @@
+document.addEventListener("DOMContentLoaded", function (event) {
+    firebase.auth().onAuthStateChanged(function (user) {
+        if (user) {
+            window.location.href = "dashboard/";
+        } else {}
+    });
+});
+
+
 function validate() {
     var email = document.getElementById("email").value;
     var password = document.getElementById("passwd").value;
 
     console.log(email);
     console.log(password);
-    
+
     firebase.auth().signInWithEmailAndPassword(email, password).then(function (user) {
         window.location.href = "dashboard/";
     }).catch(function (error) {
