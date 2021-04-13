@@ -20,7 +20,7 @@ body {
     overflow: hidden;
     background-size: cover;
     background-repeat: no-repeat;
-    background-image: url('https://source.unsplash.com/daily/?nature,mountains');
+    background-image: url('../assets/Login-BG.jpg');
     backdrop-filter: blur(5px);
 }
 

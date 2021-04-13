@@ -15,6 +15,8 @@ function validate() {
         window.location.href = "dashboard/";
     }).catch(function (error) {
         // Handle Errors here.
+        let passwdEl = document.querySelector('#passwd');
+        passwdEl.value = null;
         var errorCode = error.code;
         if (errorCode === 'auth/user-not-found') {
             document.getElementById("err").classList.remove("hide");
