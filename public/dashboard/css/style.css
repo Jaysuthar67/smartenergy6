@@ -171,7 +171,15 @@ body {
     border-radius: 8px;
 }
 
+.camPreviewCanvas {
+    display: flex;
+    justify-content: center;
 
+}
+
+.camPreviewCanvas .p5Canvas {
+
+}
 
 .labMenu {
     margin-top: 50%;
