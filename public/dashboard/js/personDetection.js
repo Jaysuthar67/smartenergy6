@@ -23,7 +23,6 @@ let sketch = function (p) {
     }
 
 };
-var p5Js = null
 
 function startDetection(w, h) {
     if (w || h) {
