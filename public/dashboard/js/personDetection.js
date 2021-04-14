@@ -30,14 +30,7 @@ function startDetection(w, h) {
         H = h;
         W = w;
     }
-    var p5Js = null
-    if (p5Js != null) {
-        p5Js.Loop();
-    } else {
-        p5Js = new p5(sketch, window.document.getElementById('camCanvasId'));
-    }
-
-    // new p5(sketch, window.document.getElementById('camCanvasId'));
+    new p5(sketch, window.document.getElementById('camCanvasId'));
 
 }
 
