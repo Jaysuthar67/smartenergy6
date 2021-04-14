@@ -210,3 +210,11 @@ body {
 .hide {
     display: none !important;
 }
+
+.fan{
+    height: 45%;
+}
+
+.light{
+    height: 45%;
+}
