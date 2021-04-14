@@ -124,7 +124,7 @@ void setup(void) {
     String str = "{\"ip\":\"";
     str += MyIP();
     str += "\"}";
-    server.send(200, "text/json", str);cor
+    server.send(200, "text/json", str);
     digitalWrite(led, HIGH);
   });
 
