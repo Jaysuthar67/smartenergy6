@@ -1,7 +1,10 @@
+let video;
+
 let sketch = function (p) {
     p.setup = function () {
-        p.createCanvas(100, 100);
+        p.createCanvas(1600, 900);
         p.background(0);
+        
 
     }
 };
