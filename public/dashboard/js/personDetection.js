@@ -17,10 +17,13 @@ let sketch = function (p) {
     }
     stop = function () {
         p.noLoop();
-        p.clear();
+        camera.stop();
+        camera.remove();
+        p.remove();
     }
 
 };
+var p5Js = null
 
 function startDetection(w, h) {
     if (w || h) {
