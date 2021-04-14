@@ -174,7 +174,7 @@ body {
 .camPreviewCanvas {
     display: flex;
     justify-content: center;
-
+    align-content: center;
 }
 
 .camPreviewCanvas .p5Canvas {
