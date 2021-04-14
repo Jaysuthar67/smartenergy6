@@ -1,11 +1,10 @@
 // // Instantiation
+
+
 document.addEventListener("DOMContentLoaded", function (e) {
     checkauth();
     loadDashboard();
 });
-
-
-
 
 
 const drawerelement = document.querySelector(".mdc-drawer--dismissible");
@@ -52,38 +51,71 @@ userMenuBtn.addEventListener('click', () => {
     userMenu.setAnchorElement(userMenuBtn);
 })
 
-function loadDashboard() {
-    const blockA = pureknob.createKnob(300, 300);
-    blockA.setProperty('angleStart', -0.75 * Math.PI);
-    blockA.setProperty('angleEnd', 0.75 * Math.PI);
-    blockA.setProperty('colorFG', '#05a300');
-    blockA.setProperty('colorBG', '#cccccc');
-    blockA.setProperty('trackWidth', 0.3);
-    blockA.setProperty('valMin', 0);
-    blockA.setProperty('valMax', 1500);
-    blockA.setProperty('readonly', true);
-    blockA.setProperty('textScale', 0.60);
-    blockA.setValue(1230);
-    let nodeA = blockA.node();
+const dashboardBlockA = pureknob.createKnob(300, 300);
+const dashboardBlockB = pureknob.createKnob(300, 300);
+
+function setSetupMeters() {
+    dashboardBlockA.setProperty('angleStart', -0.75 * Math.PI);
+    dashboardBlockA.setProperty('angleEnd', 0.75 * Math.PI);
+    dashboardBlockA.setProperty('colorFG', '#05a300');
+    dashboardBlockA.setProperty('colorBG', '#cccccc');
+    dashboardBlockA.setProperty('trackWidth', 0.3);
+    dashboardBlockA.setProperty('valMin', 0);
+    dashboardBlockA.setProperty('valMax', 400);
+    dashboardBlockA.setProperty('readonly', true);
+    dashboardBlockA.setProperty('textScale', 0.60);
+
+    let nodeA = dashboardBlockA.node();
     let elemA = document.querySelector('.meterA');
     elemA.insertBefore(nodeA, elemA.childNodes[0]);
-    const blockB = pureknob.createKnob(300, 300);
-    blockB.setProperty('angleStart', -0.75 * Math.PI);
-    blockB.setProperty('angleEnd', 0.75 * Math.PI);
-    blockB.setProperty('colorFG', '#05a300');
-    blockB.setProperty('colorBG', '#cccccc');
-    blockB.setProperty('trackWidth', 0.3);
-    blockB.setProperty('valMin', 0);
-    blockB.setProperty('valMax', 1500);
-    blockB.setProperty('readonly', true);
-    blockB.setProperty('textScale', 0.60);
-    blockB.setValue(840);
-    let nodeB = blockB.node();
+
+
+    dashboardBlockB.setProperty('angleStart', -0.75 * Math.PI);
+    dashboardBlockB.setProperty('angleEnd', 0.75 * Math.PI);
+    dashboardBlockB.setProperty('colorFG', '#05a300');
+    dashboardBlockB.setProperty('colorBG', '#cccccc');
+    dashboardBlockB.setProperty('trackWidth', 0.3);
+    dashboardBlockB.setProperty('valMin', 0);
+    dashboardBlockB.setProperty('valMax', 400);
+    dashboardBlockB.setProperty('readonly', true);
+    dashboardBlockB.setProperty('textScale', 0.60);
+
+    let nodeB = dashboardBlockB.node();
     let elemB = document.querySelector('.meterB');
     elemB.insertBefore(nodeB, elemB.childNodes[0]);
-
 }
 
+function loadDashboard() {
+    setSetupMeters();
+    dashboardBlockA.setValue(0);
+    dashboardBlockB.setValue(0);
+    getRealtimeDatabaseRef();
+}
+
+function getRealtimeDatabaseRef() {
+    const rtdbRefObject = firebase.database().ref().child('status');
+
+    rtdbRefObject.on('value', snap => {
+
+        updateDashboard(snap.val());
+    });
+}
+
+function updateDashboard(statusJson) {
+    var wattA = 0;
+    var wattB = 0;
+    wattA = (statusJson.esp_001.rly1 * 100) + (statusJson.esp_001.rly2 * 100) + (statusJson.esp_001.rly3 * 40) + (statusJson.esp_001.rly4 * 40);
+    wattB = (statusJson.esp_001.rly1 * 100) + (statusJson.esp_001.rly2 * 40);
+    dashboardBlockA.setValue(wattA);
+    dashboardBlockB.setValue(wattB);
+    var meterALable = document.querySelector('.meterALable');
+    meterALable.innerHTML = wattA + "W";
+    var meterBLable = document.querySelector('.meterBLable');
+    meterBLable.innerHTML = wattA + "W";
+    // console.log(statusJson);
+}
+
+//Naigation code
 function class1Active() {
     hideDashboard();
     hideClass2();
