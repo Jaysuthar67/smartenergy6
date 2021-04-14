@@ -11,3 +11,8 @@ function startStopCam() {
         stopDetection();
     }
 }
+
+
+function loadClass1() {
+    
+}

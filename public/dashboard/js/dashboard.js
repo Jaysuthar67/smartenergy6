@@ -124,6 +124,7 @@ function class1Active() {
     hideLab2();
     showClass1();
     closeNavBar();
+    
 }
 
 function class2Active() {
