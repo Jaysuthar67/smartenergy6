@@ -95,7 +95,7 @@ body {
     /* background-color: yellowgreen; */
 }
 
-.sectionA .me   terA {
+.sectionA .meterA {
     display: flex;
     flex-direction: column;
     align-items: center;
