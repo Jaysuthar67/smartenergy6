@@ -105,13 +105,13 @@ function updateDashboard(statusJson) {
     var wattA = 0;
     var wattB = 0;
     wattA = (statusJson.esp_001.rly1 * 100) + (statusJson.esp_001.rly2 * 100) + (statusJson.esp_001.rly3 * 40) + (statusJson.esp_001.rly4 * 40);
-    wattB = (statusJson.esp_001.rly1 * 100) + (statusJson.esp_001.rly2 * 40);
+    wattB = (statusJson.esp_002.rly1 * 100) + (statusJson.esp_002.rly2 * 40);
     dashboardBlockA.setValue(wattA);
     dashboardBlockB.setValue(wattB);
     var meterALable = document.querySelector('.meterALable');
     meterALable.innerHTML = wattA + "W";
     var meterBLable = document.querySelector('.meterBLable');
-    meterBLable.innerHTML = wattA + "W";
+    meterBLable.innerHTML = wattB + "W";
     // console.log(statusJson);
 }
 
