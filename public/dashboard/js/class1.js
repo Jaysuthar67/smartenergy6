@@ -1,10 +1,18 @@
 // const startStopCam = document.querySelector('.startStopCam');
 var cam = false;
 var ip = [];
+var firestore = firebase.firestore();
+let docRef = firestore.collection("device-list").doc("o5ar2AschqqVRN9zxxIV");
+const rtdbRefObject = firebase.database().ref().child('status');
+
 
 function loadClass1() {
     getDB();
 
+    fetch('http://example.com/movies.json')
+        .then(function (response) {
+            
+        }
     console.log(ip);
 }
 
@@ -24,7 +32,7 @@ const fanGroup2 = new mdc.switchControl.MDCSwitch(document.querySelector('.fanGr
 const lightGroup1 = new mdc.switchControl.MDCSwitch(document.querySelector('.lightGroup1'));
 const lightGroup2 = new mdc.switchControl.MDCSwitch(document.querySelector('.lightGroup2'));
 
-const rtdbRefObject = firebase.database().ref().child('status');
+
 
 document.querySelector('.fanGroup1').addEventListener('click', () => {
     rtdbRefObject.once('value').then((snapshot) => {
