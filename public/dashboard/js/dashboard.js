@@ -1,14 +1,11 @@
-// // Instantiation
-
-
 document.addEventListener("DOMContentLoaded", function (e) {
     checkauth();
+    getDeviceStatus();
     loadDashboard();
     loadClass1();
-    // startDetection(320,240);
 });
-
-
+const rtdbRefObject = firebase.database().ref().child('status');
+let currentIP = null;
 const drawerelement = document.querySelector(".mdc-drawer--dismissible");
 const drawer = new mdc.drawer.MDCDrawer.attachTo(drawerelement);
 
@@ -95,12 +92,64 @@ function loadDashboard() {
 }
 
 function getRealtimeDatabaseRef() {
-    const rtdbRefObject = firebase.database().ref().child('status');
     rtdbRefObject.on('value', snap => {
         updateDashboard(snap.val());
     });
 }
 
+function getDeviceStatus() {
+    try {
+        fetch(`http://192.168.10.40/status`)
+            .then(function (response) {
+                if (response.status !== 200) {
+                    console.log('Looks like there was a problem. Status Code: ' + response.status);
+                    return;
+                }
+                response.json().then(function (responseData) {
+                    rtdbRefObject.once('value').then((snapshot) => {
+                        let status = snapshot.val()
+                        status.esp_001.rly1 = responseData.status.rly1;
+                        status.esp_001.rly2 = responseData.status.rly2;
+                        status.esp_001.rly3 = responseData.status.rly3;
+                        status.esp_001.rly4 = responseData.status.rly4;
+                        rtdbRefObject.update(status);
+
+                        currentIP = responseData.ip;
+                        getFirestoreData();
+                        // console.log(currentIP);
+                    });
+                });
+            })
+            .catch(function (err) {
+                console.log('Fetch Error : ', err);
+            });
+    } catch (err) {
+        console.log('Fetch Error : ', err);
+    }
+}
+
+function getFirestoreData() {
+    var firestore = firebase.firestore();
+    let docRef = firestore.collection("device-list").doc("o5ar2AschqqVRN9zxxIV");
+    docRef.get().then((doc) => {
+        if (doc.exists) {
+            let localData = doc.data();
+
+            // ip.push(doc.data().last_ip);
+            if (currentIP) {
+                localData.last_ip = currentIP;
+                docRef.set(localData);
+            } else {
+
+            }
+
+        } else {
+            console.log("No such document!");
+        }
+    }).catch((error) => {
+        console.log("Error getting document:", error);
+    });
+}
 
 function updateDashboard(statusJson) {
     var wattA = 0;

@@ -99,7 +99,7 @@ void setup(void) {
     server.sendHeader("Access-Control-Allow-Methods", "GET, HEAD, POST, PUT");
     server.sendHeader("Access-Control-Allow-Headers", "X-Requested-With, X-HTTP-Method-Override, Content-Type, Cache-Control, Accept");
     digitalWrite(led, LOW);
-    String str = "{\"deviceid\":\"espJay\",\"status\":{\"rly1\":\"" ;
+    String str = "{\"deviceid\":\"esp_001\",\"status\":{\"rly1\":\"" ;
     str += !digitalRead(d0);
     str += "\",\"rly2\":\"";
     str += !digitalRead(d1);
@@ -107,7 +107,7 @@ void setup(void) {
     str += !digitalRead(d2);
     str += "\",\"rly4\":\"";
     str += !digitalRead(d3);
-    str += "\"},\"myIP\":\"";
+    str += "\"},\"ip\":\"";
     str += MyIP();
     str += "\"}";
     server.send(200, "text/json", str);
