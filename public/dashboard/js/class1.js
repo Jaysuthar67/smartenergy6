@@ -9,11 +9,19 @@ const rtdbRefObject = firebase.database().ref().child('status');
 function loadClass1() {
     getDB();
 
-    fetch('http://example.com/movies.json')
+    fetch('http://192.168.10.40/status')
         .then(function (response) {
-            
-        }
-    console.log(ip);
+            if (response.status !== 200) {
+                console.log('Looks like there was a problem. Status Code: ' + response.status);
+                return;
+            }
+            response.json().then(function (responseData) {
+                console.log(responseData);
+            });
+        })
+        .catch(function (err) {
+            console.log('Fetch Error : ', err);
+        });
 }
 
 function startStopCam() {

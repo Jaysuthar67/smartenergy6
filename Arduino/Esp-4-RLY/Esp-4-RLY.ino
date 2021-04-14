@@ -12,7 +12,7 @@ const char* ssid = STASSID;
 const char* password = STAPSK;
 int d0 = 16, d1 = 5, d2 = 4, d3 = 0;
 
-IPAddress staticIP(192, 168, 10, 51); //ESP static ip
+IPAddress staticIP(192, 168, 10, 40); //ESP static ip
 IPAddress gateway(192, 168, 10, 1);   //IP Address of your WiFi Router (Gateway)
 IPAddress subnet(255, 255, 255, 0);  //Subnet mask
 IPAddress dns(8, 8, 8, 8);  //DNS
@@ -22,6 +22,10 @@ const int led = 2;
 
 void handleRoot() {
   digitalWrite(led, LOW);
+  server.sendHeader("Access-Control-Allow-Origin", "*");
+  server.sendHeader("Allow", "HEAD,GET,PUT,POST,DELETE,OPTIONS");
+  server.sendHeader("Access-Control-Allow-Methods", "GET, HEAD, POST, PUT");
+  server.sendHeader("Access-Control-Allow-Headers", "X-Requested-With, X-HTTP-Method-Override, Content-Type, Cache-Control, Accept");
   server.send(200, "text/html", "<center><h1>root</h1></center>");
   digitalWrite(led, HIGH);
 }
@@ -39,6 +43,10 @@ void handleNotFound() {
   for (uint8_t i = 0; i < server.args(); i++) {
     message += " " + server.argName(i) + ": " + server.arg(i) + "\n";
   }
+  server.sendHeader("Access-Control-Allow-Origin", "*");
+  server.sendHeader("Allow", "HEAD,GET,PUT,POST,DELETE,OPTIONS");
+  server.sendHeader("Access-Control-Allow-Methods", "GET, HEAD, POST, PUT");
+  server.sendHeader("Access-Control-Allow-Headers", "X-Requested-With, X-HTTP-Method-Override, Content-Type, Cache-Control, Accept");
   server.send(404, "text/plain", message);
   digitalWrite(led, 0);
 }
@@ -86,6 +94,10 @@ void setup(void) {
 
   //Get Status API
   server.on("/status", []() {
+    server.sendHeader("Access-Control-Allow-Origin", "*");
+    server.sendHeader("Allow", "HEAD,GET,PUT,POST,DELETE,OPTIONS");
+    server.sendHeader("Access-Control-Allow-Methods", "GET, HEAD, POST, PUT");
+    server.sendHeader("Access-Control-Allow-Headers", "X-Requested-With, X-HTTP-Method-Override, Content-Type, Cache-Control, Accept");
     digitalWrite(led, LOW);
     String str = "{\"deviceid\":\"espJay\",\"status\":{\"rly1\":\"" ;
     str += !digitalRead(d0);
@@ -104,15 +116,23 @@ void setup(void) {
 
   //get IP API
   server.on("/ip", []() {
+    server.sendHeader("Access-Control-Allow-Origin", "*");
+    server.sendHeader("Allow", "HEAD,GET,PUT,POST,DELETE,OPTIONS");
+    server.sendHeader("Access-Control-Allow-Methods", "GET, HEAD, POST, PUT");
+    server.sendHeader("Access-Control-Allow-Headers", "X-Requested-With, X-HTTP-Method-Override, Content-Type, Cache-Control, Accept");
     digitalWrite(led, LOW);
     String str = "{\"ip\":\"";
     str += MyIP();
     str += "\"}";
-    server.send(200, "text/json", str);
+    server.send(200, "text/json", str);cor
     digitalWrite(led, HIGH);
   });
 
   server.on("/set", []() {
+    server.sendHeader("Access-Control-Allow-Origin", "*");
+    server.sendHeader("Allow", "HEAD,GET,PUT,POST,DELETE,OPTIONS");
+    server.sendHeader("Access-Control-Allow-Methods", "GET, HEAD, POST, PUT");
+    server.sendHeader("Access-Control-Allow-Headers", "X-Requested-With, X-HTTP-Method-Override, Content-Type, Cache-Control, Accept");
     digitalWrite(led, LOW);
     if (server.args() < 1) {
       server.send(400, "text/plain", "No Arguments");
@@ -131,7 +151,7 @@ void setup(void) {
           }
 
         } else if (argNames.equalsIgnoreCase("rly2")) {
-         
+
           if (server.arg(argNames).equalsIgnoreCase("on")) {
             digitalWrite(d1, LOW);
           } else if (server.arg(argNames).equalsIgnoreCase("off")) {
@@ -143,7 +163,7 @@ void setup(void) {
           }
 
         } else if (argNames.equalsIgnoreCase("rly3")) {
-         
+
           if (server.arg(argNames).equalsIgnoreCase("on")) {
             digitalWrite(d2, LOW);
           } else if (server.arg(argNames).equalsIgnoreCase("off")) {
@@ -155,7 +175,7 @@ void setup(void) {
           }
 
         } else if (argNames.equalsIgnoreCase("rly4")) {
-        
+
           if (server.arg(argNames).equalsIgnoreCase("on")) {
             digitalWrite(d3, LOW);
           } else if (server.arg(argNames).equalsIgnoreCase("off")) {
