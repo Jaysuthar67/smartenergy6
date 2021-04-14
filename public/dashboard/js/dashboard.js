@@ -4,6 +4,7 @@
 document.addEventListener("DOMContentLoaded", function (e) {
     checkauth();
     loadDashboard();
+    loadClass1();
     // startDetection(320,240);
 });
 
@@ -95,16 +96,16 @@ function loadDashboard() {
 
 function getRealtimeDatabaseRef() {
     const rtdbRefObject = firebase.database().ref().child('status');
-
     rtdbRefObject.on('value', snap => {
-
         updateDashboard(snap.val());
     });
 }
 
+
 function updateDashboard(statusJson) {
     var wattA = 0;
     var wattB = 0;
+
     wattA = (statusJson.esp_001.rly1 * 100) + (statusJson.esp_001.rly2 * 100) + (statusJson.esp_001.rly3 * 40) + (statusJson.esp_001.rly4 * 40);
     wattB = (statusJson.esp_002.rly1 * 100) + (statusJson.esp_002.rly2 * 40);
     dashboardBlockA.setValue(wattA);
@@ -114,6 +115,9 @@ function updateDashboard(statusJson) {
     var meterBLable = document.querySelector('.meterBLable');
     meterBLable.innerHTML = wattB + "W";
     // console.log(statusJson);
+    var ESP_001 = [statusJson.esp_001.rly1, statusJson.esp_001.rly2, statusJson.esp_001.rly3, statusJson.esp_001.rly4];
+    // console.log(ESP_001);
+    updateSwitches(ESP_001);
 }
 
 //Naigation code
@@ -124,7 +128,7 @@ function class1Active() {
     hideLab2();
     showClass1();
     closeNavBar();
-    
+
 }
 
 function class2Active() {
