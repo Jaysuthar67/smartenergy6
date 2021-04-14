@@ -12,6 +12,10 @@ const char* ssid = STASSID;
 const char* password = STAPSK;
 int d0 = 16, d1 = 5, d2 = 4, d3 = 0;
 
+IPAddress staticIP(192, 168, 10, 51); //ESP static ip
+IPAddress gateway(192, 168, 10, 1);   //IP Address of your WiFi Router (Gateway)
+IPAddress subnet(255, 255, 255, 0);  //Subnet mask
+IPAddress dns(8, 8, 8, 8);  //DNS
 ESP8266WebServer server(80);
 
 const int led = 2;
@@ -43,6 +47,7 @@ void setup(void) {
   pinMode(led, OUTPUT);
   digitalWrite(led, 0);
   Serial.begin(115200);
+  WiFi.config(staticIP, subnet, gateway, dns);
   WiFi.mode(WIFI_STA);
   WiFi.begin(ssid, password);
   Serial.println("");
