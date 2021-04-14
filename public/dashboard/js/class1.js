@@ -56,14 +56,6 @@ document.querySelector('.lightGroup2').addEventListener('click', () => {
 });
 
 
-function updateSwitches(rtdb) {
-    fanGroup1.checked = Boolean(rtdb[0]);
-    fanGroup2.checked = Boolean(rtdb[1]);
-    lightGroup1.checked = Boolean(rtdb[2]);
-    lightGroup2.checked = Boolean(rtdb[3]);
-
-}
-
 function getDB() {
     var firestore = firebase.firestore();
     let docRef = firestore.collection("device-list").doc("o5ar2AschqqVRN9zxxIV");
@@ -76,4 +68,12 @@ function getDB() {
     }).catch((error) => {
         console.log("Error getting document:", error);
     });
+}
+
+function updateSwitches(rtdb) {
+    fanGroup1.checked = Boolean(rtdb[0]);
+    fanGroup2.checked = Boolean(rtdb[1]);
+    lightGroup1.checked = Boolean(rtdb[2]);
+    lightGroup2.checked = Boolean(rtdb[3]);
+
 }
