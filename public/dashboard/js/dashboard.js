@@ -4,6 +4,7 @@
 document.addEventListener("DOMContentLoaded", function (e) {
     checkauth();
     loadDashboard();
+    startDetection(320,240);
 });
 
 

@@ -16,8 +16,8 @@ let sketch = function (p) {
 
 };
 
-function startDetection() {
-    var H = 240;
-    var W = 320;
+function startDetection(w, h) {
+     H = h;
+     W = w;
     new p5(sketch, window.document.getElementById('camCanvasId'));
 }
